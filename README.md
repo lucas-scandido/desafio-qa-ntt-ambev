@@ -80,7 +80,7 @@ Esta biblioteca facilita a realização de testes de API. Com ela podemos facilm
     └── README.md                                 # Documentação do projeto.
 ```
 
-# Scrits de execução:
+# Scripts de execução:
 
 - **Scripts "defaults":**
 ```
