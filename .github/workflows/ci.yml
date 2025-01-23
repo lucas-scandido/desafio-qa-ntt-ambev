@@ -16,6 +16,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
+        uses: cypress-io/github-action@v6
         run: yarn install
 
       - name: Create cache directory
@@ -45,6 +46,7 @@ jobs:
           path: cypress/cache
 
       - name: Run API Test
+        
         run: yarn cy:api
 
   e2e-test:
