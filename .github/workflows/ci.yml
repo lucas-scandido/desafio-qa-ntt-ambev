@@ -18,14 +18,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build project
-        run: yarn build
-        
-      - name: Save build folder
+     - name: Save cache folder
         uses: actions/upload-artifact@v4
         with:
-          name: build
-          path: build
+          name: cache
+          if-no-files-found: error
+          path: cypress/cache
 
   api-test:
     runs-on: ubuntu-latest
@@ -34,11 +32,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download the build folder
+      - name: Download the cache folder
         uses: actions/download-artifact@v4
         with:
-          name: build
-          path: build
+          name: cache
+          path: cypress/cache
 
       - name: Run API Test
         run: yarn cy:api
@@ -50,11 +48,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download the build folder
+      - name: Download the cache folder
         uses: actions/download-artifact@v4
         with:
-          name: build
-          path: build
+          name: cache
+          path: cypress/cache
 
       - name: Run E2E Test
         run: yarn cy:e2e --browser chrome
