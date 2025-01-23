@@ -14,7 +14,11 @@ describe("Cadastro de usuários", () => {
 
     context("Inserção de dados válidos para cadastro", () => {
         it("Deve realizar o cadastro de um usuário como administrador com sucesso", () => {
-            cy.fillSignUpForm(fullName, email, password)
+            cy.fillSignUpForm({
+                userName: fullName,
+                userEmail: email,
+                userPassword: password
+            })
             cy.registerType("Administrator")
             cy.registerUser()
             cy.verifySuccesfullRegistration()
@@ -33,25 +37,37 @@ describe("Cadastro de usuários", () => {
             cy.reload()
         })
 
-        it("Quando tentar realizar um cadastro sem o preenchimento dos campos obrigatórios, deve exibir 3 mensagens de erro de acordo com seus respectivo campo", () => {
+        it("Quando tentar realizar um cadastro sem o preenchimento dos campos obrigatórios, deve exibir 3 mensagens de erro de acordo com seus respectivos campos", () => {
             cy.registerUser()
             cy.verifyInvalidRegistration(alertMessage)
         })
 
         it("Quando tentar realizar um cadastro sem o preenchimento o campo 'Nome', deve exibir uma mensagem de erro 'Nome é obrigatório'", () => {
-            cy.fillSignUpForm(emptyField, email, password)
+            cy.fillSignUpForm({
+                userName: emptyField,
+                userEmail: email,
+                userPassword: password
+            })
             cy.registerUser()
             cy.verifyInvalidRegistration(alertMessage[0])
         })
 
         it("Quando tentar realizar um cadastro sem o preenchimento o campo 'E-mail', deve exibir uma mensagem de erro 'Email é obrigatório'", () => {
-            cy.fillSignUpForm(fullName, emptyField, password)
+            cy.fillSignUpForm({
+                userName: fullName,
+                userEmail: emptyField,
+                userPassword: password
+            })
             cy.registerUser()
             cy.verifyInvalidRegistration(alertMessage[1])
         })
 
         it("Quando tentar realizar um cadastro sem o preenchimento o campo 'Senha', deve exibir uma mensagem de erro 'Password é obrigatório'", () => {
-            cy.fillSignUpForm(fullName, email, emptyField)
+            cy.fillSignUpForm({
+                userName: fullName,
+                userEmail: email,
+                userPassword: emptyField
+            })
             cy.registerUser()
             cy.verifyInvalidRegistration(alertMessage[2])
         })
