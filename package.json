@@ -1,4 +1,23 @@
 {
+  "name": "desafio-qa-ntt-ambev",
+  "version": "1.0.0",
+  "description": "Projeto de Testes Automatizados E2E e API para a aplicação ServeRest",
+  "main": "cypress.config.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucas-scandido/desafio-qa-ntt-ambev.git"
+  },
+  "author": "Lucas da Silva Candido",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucas-scandido/desafio-qa-ntt-ambev/issues"
+  },
+  "homepage": "https://github.com/lucas-scandido/desafio-qa-ntt-ambev#readme",
+  "scripts": {
+    "test": "cypress run",
+    "cy:e2e": "cypress run --spec cypress/tests/e2e",
+    "cy:api": "cypress run --spec cypress/tests/api"
+  },
   "dependencies": {
     "cypress": "^14.0.0"
   },
