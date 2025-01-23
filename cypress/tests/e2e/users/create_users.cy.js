@@ -4,7 +4,7 @@ import { faker } from "@faker-js/faker"
 
 describe("Cadastro de usuários", () => {
     const fullName = `${faker.person.firstName()} ${faker.person.lastName()}`
-    const email = `${fullName.toLowerCase()}@teste.com.br`
+    const email = `${fullName.toLowerCase()}@nttamb.com.br`
     const password = faker.internet.password()
 
     before(() => {
