@@ -1,4 +1,4 @@
-import locators from "../locators.js"
+import locators from "./locators.js"
 
 /**
  * Navega até a página de cadastro.
@@ -15,7 +15,7 @@ Cypress.Commands.add("navigateToSignUpPage", () => {
 })
 
 /**
- * Clica no link "Cadastre-se" para registar um novo usuário.
+ * Clica no link "Cadastre-se" para usuários não registrados.
  * 
  * Este comando verifica se o texto "Não é cadastrado?" está visível
  * e, em seguida, clica no botão "Cadastre-se" para iniciar o processo
@@ -40,34 +40,34 @@ Cypress.Commands.add("clickOnNotRegisteredLink", () => {
  * os valores forem fornecidos, preenche os campos de "Nome", "Email" e "Senha".
  * Este comando possui uma exceção para aceitar valores nulos para testes de cenários
  * alternativos, que vão validar mensagens de erro dos campos do formulário.
- * @param {string} userName - O nome completo do usuário a ser cadastrado.
- * @param {string} userEmail - O endereço de email do usuário a ser cadastrado.
- * @param {string} userPassword - A senha do usuário a ser cadastrada.
+ * @param {string} fullName - O nome completo do usuário a ser cadastrado.
+ * @param {string} email - O endereço de email do usuário a ser cadastrado.
+ * @param {string} password - A senha do usuário a ser cadastrada.
  * @example
- * cy.fillSignUpForm({ "Nome de Teste", "teste@exemplo.com", "suaSenhaSegura" })
+ * cy.fillSignUpForm("Nome de Teste", "teste@exemplo.com", "suaSenhaSegura")
  */
-Cypress.Commands.add("fillSignUpForm", ({ userName, userEmail, userPassword }) => {
+Cypress.Commands.add("fillSignUpForm", (fullName, email, password) => {
     cy.get(locators.users.formTitle)
         .should("be.visible")
         .and("have.text", "Cadastro")
 
-    if (userName) {
+    if (fullName) {
         cy.get(locators.users.inputName)
             .should("be.visible")
             .and("be.enabled")
-            .type(userName)
+            .type(fullName)
     }
-    if (userEmail) {
+    if (email) {
         cy.get(locators.users.inputEmail)
             .should("be.visible")
             .and("be.enabled")
-            .type(userEmail)
+            .type(email)
     }
-    if (userPassword) {
+    if (password) {
         cy.get(locators.users.inputPassword)
             .should("be.visible")
             .and("be.enabled")
-            .type(userPassword)
+            .type(password)
     }
 })
 
