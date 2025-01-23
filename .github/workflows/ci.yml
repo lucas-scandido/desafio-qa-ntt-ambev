@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Build project
+        run: yarn build
+        
       - name: Save build folder
         uses: actions/upload-artifact@v4
         with:
