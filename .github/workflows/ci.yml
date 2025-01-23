@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-     - name: Save cache folder
+      - name: Save cache folder
         uses: actions/upload-artifact@v4
         with:
           name: cache
