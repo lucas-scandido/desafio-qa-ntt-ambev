@@ -41,7 +41,7 @@ Esta biblioteca facilita a realização de testes de API. Com ela podemos facilm
 
 </details>
 
-# Documentações relevantes:
+# Documentações relevantes
 
 - **Documentação da Aplicação ServeRest:**
 1. [GitHub](https://github.com/ServeRest/ServeRest).
@@ -80,7 +80,7 @@ Esta biblioteca facilita a realização de testes de API. Com ela podemos facilm
     └── README.md                                 # Documentação do projeto.
 ```
 
-# Scripts de execução:
+# Scripts de execução
 
 - **Scripts "defaults":**
 ```
