@@ -18,6 +18,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Create cache directory
+        run: mkdir -p cypress/cache
+
+      - name: Copy Yarn cache
+        run: cp -R $(yarn cache dir)/* cypress/cache/
+
       - name: Save cache folder
         uses: actions/upload-artifact@v4
         with:
