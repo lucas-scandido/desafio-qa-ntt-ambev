@@ -1,7 +1,5 @@
 name: ServeRest Cypress Tests
 
-name: ServeRest Cypress Tests
-
 on:
   push:
 
